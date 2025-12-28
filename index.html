@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madiba Estate | Luxury Real Estate in Abuja</title>
+  <meta name="description" content="Luxury living, redefined in Abuja. Madiba Estate curates premium residential and investment properties for discerning buyers and investors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #C6A46C;
+      --primary-dark: #987634;
+      --charcoal: #312B28;
+      --lux-white: #FAFAF8;
+      --lux-bg: #F4F1EE;
+      --card-bg: #fff;
+      --section-padding: 5.5rem 0 4rem 0;
+      --border-radius: 18px;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.09rem;
+      color: var(--charcoal);
+      background: var(--lux-bg);
+      margin: 0;
+      line-height: 1.68;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,248,0.96);
+      border-bottom: 1px solid #eee;
+      padding: 0;
+      box-shadow: 0 6px 24px -20px #98763433;
+    }
+    .nav {
+      max-width: 1240px;
+      margin: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.35rem 2.5vw 1.0rem 2.5vw;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.05rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    nav a {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.08rem;
+      position: relative;
+      padding: 4px 2px;
+      transition: color 0.2s;
+    }
+    nav a:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s;
+      border-radius: 1px;
+      position: absolute;
+      left: 0; bottom: 0;
+    }
+    nav a:hover, nav a:focus {
+      color: var(--primary-dark);
+    }
+    nav a:hover:after, nav a:focus:after {
+      width: 60%;
+    }
+    .hero {
+      min-height: 88vh;
+      display: flex; align-items: center; position: relative;
+      background: url('https://im.runware.ai/image/ws/2/ii/ea5ed4d9-6c44-408f-b2a0-d4896a68ff18.jpg') center center/cover no-repeat;
+      color: #FFF;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(123deg, rgba(49,43,40,0.7) 11%, rgba(198,164,108,0.16) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 640px;
+      padding: 7vh 3vw 5vh 5vw;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      line-height: 1.1;
+      color: #fff;
+      text-shadow: 0 2px 20px #3a2f2063;
+      margin-bottom: 1.2rem;
+    }
+    .hero-desc {
+      font-size: 1.31rem;
+      color: #F8F8F8;
+      margin-bottom: 2.7rem;
+    }
+    .hero-ctas {
+      display: flex; flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-btn, .cta-wtsp {
+      padding: 0.78em 1.65em;
+      border-radius: 40px;
+      font-size: 1.08em;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 16px -10px #98763438;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 0.55em;
+    }
+    .cta-btn {
+      background: var(--primary);
+      color: #fff;
+    }
+    .cta-btn:hover {
+      background: var(--primary-dark);
+    }
+    .cta-wtsp {
+      background: #25D366;
+      color: #fff;
+    }
+    .cta-wtsp svg {
+      width: 1.4em; height: 1.4em;
+    }
+    @media (max-width: 700px) {
+      .nav-logo { font-size: 1.25rem; }
+      nav ul { gap: 1.1rem; }
+      .hero-title { font-size: 2.0rem; }
+      .hero-content { padding: 8vh 7vw 6vh 7vw; }
+    }
+    .section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: var(--section-padding);
+      background: none;
+      position: relative;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.0rem;
+      color: var(--primary);
+      margin-bottom: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    /* About Section */
+    .about-content {
+      max-width: 670px;
+      font-size: 1.18rem;
+      color: #443633;
+    }
+    /* Featured Properties */
+    .properties-grid {
+      display: grid;
+      gap: 2.2rem 1.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      margin-top: 2.3rem;
+    }
+    .property-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 32px -16px #98763424;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.21s;
+    }
+    .property-card:hover {
+      transform: translateY(-4px) scale(1.018);
+      box-shadow: 0 8px 38px -16px #9876343b;
+    }
+    .property-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .property-details {
+      padding: 1.2rem 1.35rem 1.1rem 1.35rem;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fff;
+    }
+    .property-title {
+      font-weight: 700;
+      font-size: 1.16rem;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .property-location {
+      color: var(--primary-dark);
+      font-size: 0.99rem;
+      margin-bottom: 0.67rem;
+      font-windowing-behavior: auto;
+    }
+    .property-desc {
+      font-size: 0.99rem;
+      color: #5a4741;
+      margin-bottom: 1.05rem;
+    }
+    .property-cta {
+      align-self: flex-start;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.5em 1.25em;
+      border-radius: 20px;
+      font-size: 1em;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      margin-top: 0.5rem;
+    }
+    .property-cta:hover {
+      background: var(--primary-dark);
+    }
+    /* Why Choose Us */
+    .why-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+      gap: 1.55rem 2.3rem;
+      margin-top: 2.1rem;
+    }
+    .why-item {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 3px 20px -12px #312B2835;
+      padding: 1.5rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7em;
+    }
+    .why-icon {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.34em;
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center; justify-content: center;
+    }
+    .why-desc {
+      font-size: 1.11rem;
+      color: #443633;
+    }
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 2.2rem 1.6rem;
+      margin-top: 2.8rem;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 5px 28px -14px #98763417;
+      padding: 2rem 1.6rem 1.5rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.36rem;
+      min-height: 340px;
+    }
+    .testimonial-img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px #312B2820;
+      margin-bottom: 0.15rem;
+    }
+    .testimonial-body {
+      color: #654e39;
+      font-size: 1.13rem;
+      margin-bottom: 0.7rem;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: auto;
+    }
+    /* FAQs */
+    .faq-list {
+      max-width: 700px;
+      margin: 2.7rem auto 0 auto;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 4px 30px -14px #312B2840;
+      overflow: hidden;
+    }
+    .faq-item {
+      border-bottom: 1px solid #EFE9E4;
+    }
+    .faq-question {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      padding: 1.15rem 2.1rem 1.15rem 1.4rem;
+      color: var(--charcoal);
+      transition: background 0.15s;
+    }
+    .faq-question:hover,.faq-question[aria-expanded="true"] {
+      background: #f9f6ef;
+      color: var(--primary-dark);
+    }
+    .faq-answer {
+      padding: 0 2.1rem 1.25rem 1.4rem;
+      font-size: 1.03rem;
+      color: #5a4741;
+      display: none;
+    }
+    .faq-question[aria-expanded="true"] + .faq-answer {
+      display: block;
+    }
+    /* CTA section */
+    .cta-section {
+      background: linear-gradient(105deg, #fff8ed 0%, #f4f1ee 80%);
+      border-radius: var(--border-radius);
+      box-shadow: 0 7px 38px -17px #98763447;
+      padding: 4.5rem 2vw 4.2rem 2vw;
+      margin: 4.7rem 0 0 0;
+      text-align: center;
+    }
+    .cta-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      color: var(--charcoal);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .cta-actions {
+      display: flex; justify-content: center; gap: 1.1rem; flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    /* Footer */
+    footer {
+      background: #1e1814;
+      color: #eee;
+      padding: 3.1rem 2vw 2.2rem 2vw;
+      margin-top: 4.2rem;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;
+      margin: 0 auto;
+      gap: 2.4rem 1rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .footer-contact, .footer-social {
+      margin-bottom: 1.2rem;
+    }
+    .footer-contact a, .footer-contact-email {
+      color: #eee; text-decoration: none;
+      display: block;
+      margin-bottom: 0.17rem;
+      font-size: 1rem;
+    }
+    .footer-social {
+      display: flex; gap: 1rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+    .footer-social a {
+      color: #eee;
+      font-size: 1.35em;
+      background: #312b28;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.18s;
+    }
+    .footer-social a:hover { background: #C6A46C; color: #fff; }
+    .footer-bottom {
+      color: #e2d7be;
+      font-size: 0.97rem;
+      display: flex; align-items: center; gap: 0.5em;
+      margin-top: 1.8rem;
+    }
+    .footer-contact-wtsp {
+      color: #25D366;
+      text-decoration: underline;
+      font-weight: 600;
+      font-size: 1.03em;
+      display: inline-flex; align-items: center; gap: 0.5em;
+      margin-top: 0.45em;
+    }
+    .footer-contact-wtsp svg {
+      width: 1.1em; height: 1.1em;
+    }
+    /* Floating WhatsApp button */
+    .floating-wtsp-btn {
+      position: fixed;
+      bottom: 22px; right: 24px;
+      z-index: 1000;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px -7px #25d36688;
+      cursor: pointer;
+      transition: background 0.14s;
+      border: none;
+    }
+    .floating-wtsp-btn:hover {
+      background: #1ebc59;
+    }
+    .floating-wtsp-btn svg {
+      width: 2.2em; height: 2.2em;
+    }
+    @media (max-width: 880px) {
+      .nav, .footer-inner, .section { padding-left: 4vw; padding-right: 4vw; }
+      .properties-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .section, .cta-section { padding-left: 3vw; padding-right: 3vw; }
+      .nav { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+      .properties-grid,.testimonials-grid,.why-list { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .floating-wtsp-btn { right: 10px; bottom: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <span class="nav-logo">Madiba Estate</span>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#why">Why Madiba</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-title">Luxury Living, Redefined in Abuja</div>
+        <div class="hero-desc">Premium residential and investment properties curated for discerning buyers.</div>
+        <div class="hero-ctas">
+          <a href="#properties" class="cta-btn">View Properties</a>
+          <a href="#contact" class="cta-btn" style="background:var(--charcoal);color:#fff;">Book a Private Tour</a>
+          <a href="https://wa.me/2348012345678" class="cta-wtsp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" fill="none"><g><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M17.4 23c-3.435 0-6.559-1.857-8.211-4.812l-.553-.986-2.388.703.684-2.341-.962-.99a9.87 9.87 0 0117.682-8.645A9.866 9.866 0 0117.4 23zm6.5-13.9a11.696 11.696 0 00-8.5-3.6c-6.444 0-11.7 5.256-11.7 11.7 0 2.185.56 4.253 1.618 6.052l-1.681 5.757a1.25 1.25 0 001.59 1.59l5.757-1.681A11.677 11.677 0 0017.4 28.3c6.444 0 11.7-5.256 11.7-11.7a11.678 11.678 0 00-3.6-8.5z"/></g></svg>
+            WhatsApp Madiba Estate
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="section-title">About Madiba Estate</div>
+      <div class="about-content">
+        <p>Founded at the heart of Abuja, Madiba Estate is dedicated to uplifting the standard of luxury living and property investment in Nigeria's capital. We are more than just real estate agents—our mission is to be your trusted, long-term partner in every aspect of your property journey.</p>
+        <p>Our carefully curated listings embody trust, transparency, and world-class service. Serving both local and diaspora investors, we offer unrivaled market expertise and uncompromising attention to legal and financial diligence. Choose Madiba Estate for service that endures well beyond the transaction.</p>
+      </div>
+    </section>
+    <!-- Featured Properties -->
+    <section class="section" id="properties">
+      <div class="section-title">Featured Luxury Properties</div>
+      <div class="properties-grid">
+        <!-- Card 1 -->
+        <div class="property-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/933beb90-b62a-4aea-bea8-2f3a3cad6956.jpg" alt="Luxury Smart Villa – Maitama" class="property-img">
+          <div class="property-details">
+            <div class="property-title">Luxury Smart Villa</div>
+            <div class="property-location">Maitama, Abuja</div>
+            <div class="property-desc">A new benchmark for comfort—ultramodern glass-front villa, smart home systems, and secluded gated privacy in Maitama’s most coveted enclave.</div>
+            <a href="#contact" class="property-cta">View Details</a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="property-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/2432b6b6-ce3b-4d3b-99e8-9fa56942ea25.jpg" alt="High-Rise Apartments – Wuse II" class="property-img">
+          <div class="property-details">
+            <div class="property-title">High-Rise Apartments</div>
+            <div class="property-location">Wuse II, Abuja</div>
+            <div class="property-desc">Experience panoramic city views and exceptional amenities in these contemporary high-rise apartments, ideally situated in vibrant Wuse II.</div>
+            <a href="#contact" class="property-cta">View Details</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="property-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/ac409c75-4cc2-4501-be61-07c01bb34694.jpg" alt="Executive Family Homes – Asokoro" class="property-img">
+          <div class="property-details">
+            <div class="property-title">Executive Family Homes</div>
+            <div class="property-location">Asokoro, Abuja</div>
+            <div class="property-desc">Elegant detached homes, lush landscaped gardens, and serene living designed for sophisticated family life in sought-after Asokoro.</div>
+            <a href="#contact" class="property-cta">View Details</a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="property-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/a99cb8c7-5497-4596-b0a4-2675774548ba.jpg" alt="Investment Apartments – Guzape" class="property-img">
+          <div class="property-details">
+            <div class="property-title">Investment Apartments</div>
+            <div class="property-location">Guzape, Abuja</div>
+            <div class="property-desc">Premium mid-rise development with versatile floorplans and strong investment potential in fast-growing Guzape.</div>
+            <a href="#contact" class="property-cta">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why Choose Madiba Estate -->
+    <section class="section" id="why">
+      <div class="section-title">Why Choose Madiba Estate</div>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-icon">🏛️</div>
+          <div class="why-desc">Curated luxury listings only</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">📜</div>
+          <div class="why-desc">Legal due diligence on all properties</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">📍</div>
+          <div class="why-desc">Abuja market expertise</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🤝</div>
+          <div class="why-desc">Trusted by investors and homeowners</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🔑</div>
+          <div class="why-desc">End-to-end support (search → purchase → handover)</div>
+        </div>
+      </div>
+    </section>
+    <!-- Client Reviews -->
+    <section class="section" id="reviews">
+      <div class="section-title">Client Reviews</div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/fc7d170f-7058-4bff-b16f-f4098f83c535.jpg" alt="Client Testimonial" class="testimonial-img">
+          <div class="testimonial-body">“Madiba Estate made buying property in Abuja seamless and stress-free.”</div>
+          <span class="testimonial-name">— Investor</span>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/da1fe057-265e-405e-8c24-d8d062bbcb85.jpg" alt="Client Testimonial" class="testimonial-img">
+          <div class="testimonial-body">“Professional, transparent, and extremely reliable.”</div>
+          <span class="testimonial-name">— Homeowner</span>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/df66da9d-5515-4bcc-af73-5405b54cd410.jpg" alt="Client Testimonial" class="testimonial-img">
+          <div class="testimonial-body">“As a diaspora buyer, I trusted Madiba Estate completely.”</div>
+          <span class="testimonial-name">— Diaspora Client</span>
+        </div>
+        <div class="testimonial-card">
+          <img src="https://im.runware.ai/image/ws/2/ii/28214ff7-bb7f-474b-a67a-d7adfe449646.jpg" alt="Client Testimonial" class="testimonial-img">
+          <div class="testimonial-body">“They understand luxury and deliver beyond expectations.”</div>
+          <span class="testimonial-name">— Property Investor</span>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section-title">Frequently Asked Questions</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do you work with diaspora buyers?</button>
+          <div class="faq-answer">Absolutely! We specialize in helping Nigerians in the diaspora acquire luxury and investment properties in Abuja with full transparency and remote support.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Are all properties legally verified?</button>
+          <div class="faq-answer">Every property we list undergoes rigorous legal due diligence to ensure authenticity of title, ownership, and compliance with local laws.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Can I schedule virtual property tours?</button>
+          <div class="faq-answer">Yes. We offer detailed virtual tours and live walkthroughs for clients who cannot visit Abuja in person.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do you assist with property documentation?</button>
+          <div class="faq-answer">We provide complete assistance with all legal and administrative documentation, ensuring a clear and stress-free process.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Which areas of Abuja do you specialize in?</button>
+          <div class="faq-answer">We focus on luxury locations including Maitama, Asokoro, Guzape, and Wuse II, but also serve select developments throughout Abuja.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do you offer investment advisory services?</button>
+          <div class="faq-answer">Yes, our experts provide market insights and strategic advice to help maximize your returns on Abuja property investment.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How do I begin the purchase process?</button>
+          <div class="faq-answer">Simply contact us via WhatsApp, phone, or our website to discuss your requirements and schedule a consultation.</div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="cta-headline">Find Your Next Property with Confidence</div>
+      <div class="cta-actions">
+        <a href="#contact" class="cta-btn">Schedule a Consultation</a>
+        <a href="#properties" class="cta-btn" style="background:var(--primary);color:#fff;">View Available Properties</a>
+        <a href="https://wa.me/2348012345678" class="cta-wtsp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" fill="none"><g><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M17.4 23c-3.435 0-6.559-1.857-8.211-4.812l-.553-.986-2.388.703.684-2.341-.962-.99a9.87 9.87 0 0117.682-8.645A9.866 9.866 0 0117.4 23zm6.5-13.9a11.696 11.696 0 00-8.5-3.6c-6.444 0-11.7 5.256-11.7 11.7 0 2.185.56 4.253 1.618 6.052l-1.681 5.757a1.25 1.25 0 001.59 1.59l5.757-1.681A11.677 11.677 0 0017.4 28.3c6.444 0 11.7-5.256 11.7-11.7a11.678 11.678 0 00-3.6-8.5z"/></g></svg>
+          WhatsApp Madiba Estate
+        </a>
+      </div>
+    </section>
+  </main>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/2348012345678" class="floating-wtsp-btn" target="_blank" rel="noopener" aria-label="WhatsApp Madiba Estate">
+    <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M17.4 23c-3.435 0-6.559-1.857-8.211-4.812l-.553-.986-2.388.703.684-2.341-.962-.99a9.87 9.87 0 0117.682-8.645A9.866 9.866 0 0117.4 23zm6.5-13.9a11.696 11.696 0 00-8.5-3.6c-6.444 0-11.7 5.256-11.7 11.7 0 2.185.56 4.253 1.618 6.052l-1.681 5.757a1.25 1.25 0 001.59 1.59l5.757-1.681A11.677 11.677 0 0017.4 28.3c6.444 0 11.7-5.256 11.7-11.7a11.678 11.678 0 00-3.6-8.5z"/></svg>
+  </a>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Madiba Estate</div>
+        <div>Abuja, Nigeria</div>
+        <div class="footer-contact-email">info@madibaestate.com</div>
+        <div class="footer-contact">+234 801 234 5678</div>
+        <a href="https://wa.me/2348012345678" class="footer-contact-wtsp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M17.4 23c-3.435 0-6.559-1.857-8.211-4.812l-.553-.986-2.388.703.684-2.341-.962-.99a9.87 9.87 0 0117.682-8.645A9.866 9.866 0 0117.4 23zm6.5-13.9a11.696 11.696 0 00-8.5-3.6c-6.444 0-11.7 5.256-11.7 11.7 0 2.185.56 4.253 1.618 6.052l-1.681 5.757a1.25 1.25 0 001.59 1.59l5.757-1.681A11.677 11.677 0 0017.4 28.3c6.444 0 11.7-5.256 11.7-11.7a11.678 11.678 0 00-3.6-8.5z"/></svg> WhatsApp Madiba Estate
+        </a>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="Instagram" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="10" cy="10" r="4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="15" cy="5" r="1.2" fill="#fff"/></svg>
+        </a>
+        <a href="#" title="Facebook" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="#fff" stroke-width="2"/><path d="M12 10.5h2V8.3c0-1.3-.8-2.1-2.1-2.1-.9 0-1.7.6-1.9 1.6-.1.3-.1.5-.1.7v.6H7.8V12h2v4h2v-4z" fill="#fff"/></svg>
+        </a>
+        <a href="#" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="none" stroke="#fff" stroke-width="2"/><rect x="6" y="8" width="2" height="6" fill="#fff"/><rect x="12" y="10" width="2" height="4" fill="#fff"/><circle cx="7" cy="6" r="1" fill="#fff"/></svg>
+        </a>
+      </div>
+      <div class="footer-bottom">made with ❤️ by adorrable.dev &nbsp;|&nbsp; © 2024 Madiba Estate. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-question').forEach(el => el.setAttribute('aria-expanded','false'));
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      });
+    });
+    // Make nav links scroll smoothly and highlight active
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if(href && href.startsWith('#')) {
+          e.preventDefault();
+          const section = document.querySelector(href);
+          if(section) {
+            window.scrollTo({top: section.offsetTop-62, behavior:'smooth'});
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
